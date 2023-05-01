@@ -10,7 +10,7 @@ app.use(cors())
 
 const Port = 5000;
 
-app.use(express.static(path.join(__dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, './build')));
 
 const server = app.listen(Port, console.log(`server run port ${Port}`))
 
