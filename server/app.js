@@ -10,41 +10,7 @@ app.use(cors())
 
 const Port = 5000;
 
-app.use('/', function (req, res, next) {
-
-    const options = {
-        root: path.join(__dirname)
-
-
-
-    };
-
-    const fileName = '/mychart/index.html';
-    res.sendFile(fileName, options, function (err) {
-        if (err) {
-            next(err);
-        } else {
-            console.log('Sent:', fileName);
-            next();
-        }
-    });
-});
-
-app.get('/', function (req, res) {
-    console.log("File Sent")
-    res.send();
-});
-
-
-
-
-
-
-
-
-
-
-
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 const server = app.listen(Port, console.log(`server run port ${Port}`))
 
