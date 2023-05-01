@@ -14,6 +14,9 @@ app.use('/', function (req, res, next) {
 
     const options = {
         root: path.join(__dirname)
+
+
+
     };
 
     const fileName = '/mychart/index.html';
