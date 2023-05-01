@@ -2,8 +2,8 @@ import io from 'socket.io-client'
 import { useEffect, useState } from 'react';
 
 
-// const socket = io.connect("https://mychart-3-0.herokuapp.com/")
-const socket = io.connect("http://localhost:5000/")
+const socket = io.connect("https://mychart-3-0.herokuapp.com/")
+// const socket = io.connect("http://localhost:5000/")
 
 function App() {
   const [mess, messState] = useState('');
