@@ -26,22 +26,18 @@ const io = require("socket.io")(server, {
     }
 
 })
-
-
-
-
-
-
 io.on("connection", (socket) => {
-    console.log(`user connected ${socket.id}`);
+    console.log("user connected : ", socket.id);
     socket.on("send_mess", (data) => {
-        // console.log(data);
-        socket.to(data.join).emit("receive_mes", data);
+        const { joinId, msg, username } = data
+        console.log({ data })
+        socket.to(joinId).emit("receive_mess", { msg, username });
+        // socket.emit("receive_mess", msg);
     })
 
     socket.on("join_room", (data) => {
-        socket.join(data);
+        const { joinId, username } = data
+        socket.join(joinId);
+        socket.emit("join_successful", username);
     })
-
 })
-
